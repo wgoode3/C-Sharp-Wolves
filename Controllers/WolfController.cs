@@ -35,6 +35,7 @@ namespace Wolves.Controllers
                 Console.WriteLine($"{wolf.Name} {wolf.Type} {wolf.DOB}");
                 return Redirect("/");
             } else {
+                ViewBag.Wolves = dbContext.Wolves.ToList();
                 return View("Index", wolf);
             }
         }
