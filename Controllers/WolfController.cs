@@ -40,5 +40,35 @@ namespace Wolves.Controllers
             }
         }
 
+        [Route("wolf/{WolfId}")]
+        [HttpGet]
+        public IActionResult Show(int WolfId)
+        {
+            Wolf w = dbContext.GetWolfById(WolfId);
+            return View(w);
+        }
+
+        [Route("update/{WolfId}")]
+        [HttpPost]
+        public IActionResult Update(int WolfId, Wolf wolf)
+        {
+            if(ModelState.IsValid){
+                dbContext.Update(wolf);
+                return Redirect("/");
+            }
+            else
+            {
+                return View("Show", wolf);
+            }
+        }
+
+        [Route("delete/{WolfId}")]
+        [HttpPost]
+        public IActionResult Delete(int WolfId)
+        {
+            dbContext.DeleteById(WolfId);
+            return Redirect("/");
+        }
+
     }
 }

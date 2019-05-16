@@ -18,7 +18,7 @@
         @foreach (var wolf in ViewBag.Wolves)
         {
             <tr>
-                <td>@wolf.Name</td>
+                <td><a href="/wolf/@wolf.WolfId">@wolf.Name</a></td>
                 <td>@wolf.Type</td>
                 <td>@wolf.DOB</td>
             </tr>
