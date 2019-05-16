@@ -1,0 +1,23 @@
+﻿
+<div class="jumbotron">
+    <h1>Check out these wolves!</h1>
+    <p>Awooo~</p>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Date of Birth</th>
+    </tr>
+    @foreach (var wolf in ViewBag.Wolves)
+    {
+        <tr>
+            <td>@wolf.Name</td>
+            <td>@wolf.Type</td>
+            <td>@wolf.DOB</td>
+        </tr>
+    }
+</table>
+
+<partial name="_WolfForm"></partial>
